@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     // public 접근제어자를 씀으로써 외부뿐만 아니라
     // 유니티 에디터에서 이 변수에 직접 접근하는 것이 가능해짐
-    float speed = 10;
+    float speed = 15;
     float turnSpeed = 45.0f;
 
     float forwardInput;
