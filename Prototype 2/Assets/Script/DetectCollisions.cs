@@ -20,16 +20,17 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // 태그가 플레이어라면 life를 제거
         if (other.CompareTag("Player"))
         {
             gameManager.AddLive(-1);
             Destroy(gameObject);
         }
+        // 태그가 동물인지 확인하고, 만약 그렇다면 점수를 추가
         else if (other.CompareTag("Animal"))
         {
-            gameManager.AddScore(5);
+            other.GetComponent<AnimalHunger>().FeedAnimal(1); // AnimalHunger스크립트를 열어 음식이 동물을 칠 때의 충돌을 조정
             Destroy(gameObject); // 자신 제거 - 동물제거
-            Destroy(other.gameObject); // 나에게 부딪힌 상대방(탄도개체) - 뼈다귀 제거
         }
     }
 }
