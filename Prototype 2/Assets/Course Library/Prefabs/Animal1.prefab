@@ -6282,7 +6282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hungerSlider: {fileID: 5785582196694708189}
-  amountToBeFed: 2
+  amountToBeFed: 1
 --- !u!1001 &2330466833384217921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6403,9 +6403,21 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.12869526
       objectReference: {fileID: 0}
+    - target: {fileID: 5664742224392311128, guid: ebf9654e51208c74284313c667bdc156, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664742224392311128, guid: ebf9654e51208c74284313c667bdc156, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894897537485642790, guid: ebf9654e51208c74284313c667bdc156, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8078894120400974492, guid: ebf9654e51208c74284313c667bdc156, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8523767968807790172, guid: ebf9654e51208c74284313c667bdc156, type: 3}
       propertyPath: m_CullTransparentMesh

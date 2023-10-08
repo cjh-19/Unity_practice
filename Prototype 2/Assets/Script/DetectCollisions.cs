@@ -27,7 +27,7 @@ public class DetectCollisions : MonoBehaviour
             Destroy(gameObject);
         }
         // 태그가 동물인지 확인하고, 만약 그렇다면 점수를 추가
-        else if (other.CompareTag("Animal"))
+        else if (other.CompareTag("Animal") && gameObject.CompareTag("Food"))
         {
             other.GetComponent<AnimalHunger>().FeedAnimal(1); // AnimalHunger스크립트를 열어 음식이 동물을 칠 때의 충돌을 조정
             Destroy(gameObject); // 자신 제거 - 동물제거
