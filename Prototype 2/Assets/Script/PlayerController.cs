@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform projectileSpawnPoint;
 
+    public string inputID;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +27,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);
         transform.Translate(Vector3.right *  horizontalInput * Time.deltaTime * speed);
 
-        verticalInput = Input.GetAxis("Vertical");
+        verticalInput = Input.GetAxis("Vertical" + inputID);
         transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
 
         if(transform.position.x < -xRange)
