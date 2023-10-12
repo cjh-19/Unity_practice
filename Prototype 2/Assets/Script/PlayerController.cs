@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Transform projectileSpawnPoint;
 
     public string inputID;
+    public KeyCode throwFood;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,8 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, zMax);
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        // 'F' 누르면 Player1이 음식을 던짐, 'M'누르면 Player2가 던짐
+        if (Input.GetKeyDown(throwFood))
         {
             // Launch a projectile from the player 어떤 탄도체를 플레이어로부터 발사하게 하는 것
             Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
