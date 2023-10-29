@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject obstaclePrefab; // obstacle에 해당하는 프리팹 하나만 선언하면 되므로 굳이 배열 안해도 됨
+    public GameObject[] obstaclePrefab; // obstacle에 해당하는 프리팹 하나만 선언하면 되므로 굳이 배열 안해도 됨
     private Vector3 spawnPos = new Vector3 (25, 0, 0); // 주기적으로 등장하므로 고정시켜둠.
 
     private float startDelay = 2; // 초기 딜레이
     private float repeatRate = 2; // 반복 속도
 
     private PlayerController playerControllerScript; // 플레이어 컨트롤러 컴포넌트를 얻어옴
+    private int randomObstacle;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,8 @@ public class SpawnManager : MonoBehaviour
     {
         if(playerControllerScript.gameOver == false)
         {
-            Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
+            randomObstacle = Random.Range(0, obstaclePrefab.Length);
+            Instantiate(obstaclePrefab[randomObstacle], spawnPos, obstaclePrefab[randomObstacle].transform.rotation);
         }
     }
 }
