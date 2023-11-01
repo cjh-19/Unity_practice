@@ -22,6 +22,9 @@ public class PlayerController : MonoBehaviour
     // true는 땅에 있는 상태
     public bool gameOver = false; // 게임이 종료된다는 상태를 표시하는 변수
 
+    public bool doubleJumpUsed = false;
+    public float doubleJumpForce;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +57,15 @@ public class PlayerController : MonoBehaviour
 
             dirtyParticle.Stop();
 
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
+
+            doubleJumpUsed = false;
+        }
+        else if(Input.GetKeyDown(KeyCode.Space) && !isOnGround && !doubleJumpUsed)
+        {
+            doubleJumpUsed = true;
+            playerRb.AddForce(Vector3.up*doubleJumpForce, ForceMode.Impulse);
+            playerAnim.Play("Running_Jump", 3, 0f);
             playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
     }

@@ -193,9 +193,11 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 08ab7053d586c458db3774d33c141a4b, type: 3}
   crashSound: {fileID: 8300000, guid: 4bcde6de2166e41e284ec46d8a01fb90, type: 3}
   jumpForce: 10
-  gravityModifier: 1
+  gravityModifier: 1.5
   isOnGround: 1
   gameOver: 0
+  doubleJumpUsed: 0
+  doubleJumpForce: 7
 --- !u!4 &105104144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400046, guid: f8abbdd178867d2419ba9feb6ff2cba0, type: 3}
