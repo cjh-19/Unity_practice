@@ -23,7 +23,13 @@ public class MoveLeft : MonoBehaviour
         // gameOver가 false일 때만 움직이게 한다.
         if(playerControllerScript.gameOver == false) 
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            if (playerControllerScript.doubleSpeed)
+            {
+                transform.Translate(Vector3.left * Time.deltaTime * (speed * 2));
+            }
+            else {
+                transform.Translate(Vector3.left * Time.deltaTime * speed);
+            }
         }
 
         // 상자가 바닥으로 떨어지면 제거한다
