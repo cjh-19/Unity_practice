@@ -61,6 +61,7 @@
     <Compile Include="Assets\Script\RepeatBackground.cs" />
     <Compile Include="Assets\Script\PlayerController.cs" />
     <Compile Include="Assets\Script\SpawnManager.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
     <Compile Include="Assets\Script\MoveLeft.cs" />
   </ItemGroup>
   <ItemGroup>
