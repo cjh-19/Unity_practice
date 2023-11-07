@@ -357,6 +357,7 @@
 "Assets/Script/PlayerController.cs"
 "Assets/Script/RepeatBackground.cs"
 "Assets/Script/SpawnManager.cs"
+"Assets/Script/Stage2Change.cs"
 -langversion:9.0
 
 /deterministic
