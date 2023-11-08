@@ -21,9 +21,13 @@ public class PlayerController : MonoBehaviour
     public bool isOnGround = true; // 캐릭터가 땅에 붙어있는지 점프한 상태인지 파악
     // true는 땅에 있는 상태
     public bool gameOver = false; // 게임이 종료된다는 상태를 표시하는 변수
+    public bool gameClear = false; // 게임이 클리어 됐다는 상태
 
     public bool doubleJumpUsed = false;
     public float doubleJumpForce;
+
+    public bool tripleJumpUsed = false;
+    public float tripleJumpForce;
 
     public bool doubleSpeed = false;
 
@@ -69,7 +73,18 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up*doubleJumpForce, ForceMode.Impulse);
             playerAnim.Play("Running_Jump", 3, 0f);
             playerAudio.PlayOneShot(jumpSound, 1.0f);
+
+            tripleJumpUsed = false;
         }
+        else if(Input.GetKeyDown(KeyCode.Space) && !isOnGround & !tripleJumpUsed)
+        {
+            tripleJumpUsed = true;
+            playerRb.AddForce(Vector3.up * tripleJumpForce, ForceMode.Impulse);
+            playerAnim.Play("Running_Jump", 3, 0f);
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
+        }
+
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             doubleSpeed = true;
@@ -93,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
             dirtyParticle.Play();
         }
-        else if (collision.gameObject.CompareTag("Obstacle"))
+        else if (collision.gameObject.CompareTag("Obstacle") && !gameClear)
         {
             gameOver = true;
             Debug.Log("Game Over!");

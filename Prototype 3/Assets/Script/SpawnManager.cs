@@ -13,6 +13,8 @@ public class SpawnManager : MonoBehaviour
     private PlayerController playerControllerScript; // 플레이어 컨트롤러 컴포넌트를 얻어옴
     private int randomObstacle;
 
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +24,18 @@ public class SpawnManager : MonoBehaviour
 
         // 이 변수를 초기화할 때는 현재 게임화면 안에 있는 특정 이름이 있는 오브젝트를 가져오는 함수
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(gameManager.score == 3000)
+        {
+            CancelInvoke("SpawnObstacle"); // InvokeRepeating 중단
+            repeatRate = 1.2f;
+            InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
+        }
     }
 
     void SpawnObstacle()

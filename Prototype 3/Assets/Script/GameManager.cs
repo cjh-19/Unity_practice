@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; // Text 쓰기위해 선언
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class GameManager : MonoBehaviour
     private PlayerController playerControllerScript;
     public Transform startingPoint;
     public float lerpSpeed;
+    public Text Stage;
+    public Text Score;
+
+    public GameObject WinState;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +27,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!playerControllerScript.gameOver)
+        if (!playerControllerScript.gameOver && !playerControllerScript.gameClear)
         {
             if (playerControllerScript.doubleSpeed)
             {
@@ -33,6 +38,17 @@ public class GameManager : MonoBehaviour
                 score++;
             }
             Debug.Log("Score: " + score);
+            Score.text = "Score: " + score;
+        }
+        if(score > 3000)
+        {
+            Stage.text = "Stage:" + 2;
+        }
+        if(score == 5000 && !playerControllerScript.gameOver)
+        {
+            WinState.SetActive(true);
+            playerControllerScript.gameClear = true;
+            Debug.Log("Game Clear!");
         }
     }
 
