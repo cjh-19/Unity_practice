@@ -269,6 +269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f3a8b7c7280434e959812d8af4091f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPowerUp: 0
+  rocketPrefab: {fileID: 3649031895971773627, guid: ad28331d8cfd50940babeba45e172dc4, type: 3}
   speed: 5
   hasPowerup: 0
   powerupIndicator: {fileID: 616188330}
@@ -387,8 +389,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33c5b25f5f39b4c49a44e79f20c87ef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 5531924417573991967, guid: 68f2a4e63874de14ca0e7f5e20619dce, type: 3}
-  powerupPrefab: {fileID: 5193535512294662854, guid: edd0d192fe3495b4e813d38d4f0aa2b1, type: 3}
+  enemyPrefab:
+  - {fileID: 5531924417573991967, guid: 68f2a4e63874de14ca0e7f5e20619dce, type: 3}
+  - {fileID: 5531924417573991967, guid: 38962cf88f6b58348bc4be1c1f228932, type: 3}
+  powerupPrefab:
+  - {fileID: 5193535512294662854, guid: edd0d192fe3495b4e813d38d4f0aa2b1, type: 3}
+  - {fileID: 5193535512294662854, guid: de5df1e90082dff4d982dfdf94d85d62, type: 3}
   enemyCount: 0
   waveNumber: 1
 --- !u!4 &1065977878

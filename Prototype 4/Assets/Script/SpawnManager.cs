@@ -5,10 +5,10 @@ using UnityEngine.UIElements;
 
 public class SpawnManager : MonoBehaviour
 {
-    // 스폰하고자 하는 객체를 저장한 변수
-    public GameObject enemyPrefab;
+    // 스폰하고자 하는 객체를 저장한 배열
+    public GameObject[] enemyPrefab;
     // powerup 프리팹 변수
-    public GameObject powerupPrefab;
+    public GameObject[] powerupPrefab;
     // 랜덤한 위치에서 생성
     private float spawnRange = 9;
 
@@ -19,7 +19,8 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
+        int randomPowerup = Random.Range(0, powerupPrefab.Length);
+        Instantiate(powerupPrefab[randomPowerup], GenerateSpawnPosition(), powerupPrefab[randomPowerup].transform.rotation);
 
         SpawnEnemyWave(waveNumber);
     }
@@ -33,8 +34,8 @@ public class SpawnManager : MonoBehaviour
         {
             waveNumber++;
             SpawnEnemyWave(waveNumber);
-
-            Instantiate(powerupPrefab, GenerateSpawnPosition(), powerupPrefab.transform.rotation);
+            int randomPowerup = Random.Range(0, powerupPrefab.Length);
+            Instantiate(powerupPrefab[randomPowerup], GenerateSpawnPosition(), powerupPrefab[randomPowerup].transform.rotation);
         }
     }
     
@@ -43,7 +44,8 @@ public class SpawnManager : MonoBehaviour
         // 여러개의 적을 생성
         for(int i = 0; i < enemiesToSpawn; i++)
         {
-            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+            int randomEnemy = Random.Range(0, enemyPrefab.Length);
+            Instantiate(enemyPrefab[randomEnemy], GenerateSpawnPosition(), enemyPrefab[randomEnemy].transform.rotation);
         }
 
     }
