@@ -274,6 +274,10 @@ MonoBehaviour:
   speed: 5
   hasPowerup: 0
   powerupIndicator: {fileID: 616188330}
+  hangTime: 1
+  smashSpeed: 1
+  explosionForce: 5
+  explosionRadius: 5
 --- !u!1001 &245963551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -395,6 +399,7 @@ MonoBehaviour:
   powerupPrefab:
   - {fileID: 5193535512294662854, guid: edd0d192fe3495b4e813d38d4f0aa2b1, type: 3}
   - {fileID: 5193535512294662854, guid: de5df1e90082dff4d982dfdf94d85d62, type: 3}
+  - {fileID: 5121975171837950092, guid: a20c0d62a5f37524dbf2b65f05253cfc, type: 3}
   enemyCount: 0
   waveNumber: 1
 --- !u!4 &1065977878
