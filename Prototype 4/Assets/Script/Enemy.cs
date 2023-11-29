@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public bool isBoss = false;
+
+    public float spawnInterval;
+    private float nextSpawn;
+
+    public int miniEnemySpawnCount;
+
+    private SpawnManager spawnManager;
+
     public float speed = 3.0f; // 얼마만큼의 속도로 움직일 것인가
     private Rigidbody enemyRb;
     private GameObject player;
@@ -15,6 +24,11 @@ public class Enemy : MonoBehaviour
     {
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+
+        if (isBoss)
+        {
+            spawnManager = FindObjectOfType<SpawnManager>();
+        }
     }
 
     // Update is called once per frame
@@ -28,6 +42,15 @@ public class Enemy : MonoBehaviour
         // 플레이어 위치에서 enemy 위치를 빼면 벡터가 나옴
         // 이것을 nomalized : 거리는 개입하지 않고 방향만을 얻기 위해 단위벡터로 만든다
         // 그 방향으로 일정한 크기 : speed 만큼 힘을 적용한다.
+
+        if(isBoss)
+        {
+            if(Time.time > nextSpawn)
+            {
+                nextSpawn = Time.time + spawnInterval;
+                spawnManager.SpawnMiniEnemy(miniEnemySpawnCount);
+            }
+        }
 
         // 적이 떨어지면 적 객체 제거
         if(transform.position.y < -10)

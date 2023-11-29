@@ -274,10 +274,10 @@ MonoBehaviour:
   speed: 5
   hasPowerup: 0
   powerupIndicator: {fileID: 616188330}
-  hangTime: 1
-  smashSpeed: 1
-  explosionForce: 5
-  explosionRadius: 5
+  hangTime: 0.7
+  smashSpeed: 12
+  explosionForce: 10
+  explosionRadius: 10
 --- !u!1001 &245963551
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -402,6 +402,11 @@ MonoBehaviour:
   - {fileID: 5121975171837950092, guid: a20c0d62a5f37524dbf2b65f05253cfc, type: 3}
   enemyCount: 0
   waveNumber: 1
+  bossPrefab: {fileID: 3477101948738408339, guid: ff0fe20c4d250c34d92f706638cba593, type: 3}
+  miniEnemyPrefabs:
+  - {fileID: 6790906452700669969, guid: 3e6878fccc68d6947a897261dc3df0b4, type: 3}
+  - {fileID: 6302937540988634511, guid: 2181eabcd4d75724e8ffa1e5b52e2732, type: 3}
+  bossRound: 2
 --- !u!4 &1065977878
 Transform:
   m_ObjectHideFlags: 0
