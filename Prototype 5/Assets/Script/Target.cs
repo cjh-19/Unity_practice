@@ -56,10 +56,13 @@ public class Target : MonoBehaviour
     // 객체를 마우스로 클릭하면 사라지게 함
     private void OnMouseDown()
     {
-        Destroy(gameObject);
-        // 목표물과 같은 위치에서 시작되도록 transform.position
-        Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-        gameManager.UpdateScore(pointValue);
+        if (gameManager.isGameActive)
+        {
+            Destroy(gameObject);
+            // 목표물과 같은 위치에서 시작되도록 transform.position
+            Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
+            gameManager.UpdateScore(pointValue);
+        }
     }
 
     // 트리거가 일어났을 때도 제거
@@ -68,5 +71,11 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+
+        // 나쁜 오브젝트가 아닌 좋은 오브젝트가 떨어질 경우 게임 오버
+        if (!gameObject.CompareTag("Bad"))
+        {
+            gameManager.GameOver();
+        }
     }
 }
